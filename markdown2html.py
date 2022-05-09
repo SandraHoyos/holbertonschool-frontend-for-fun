@@ -62,9 +62,6 @@ def li(line, flags):
 def clean_line(line):
     """
     Styling tags with the use of Regular expressions.
-    <b>...<\b><em>...<\em>
-    [[...]] = md5(...)
-    ((...)) = ... with no 'C' or 'c' characters.
     """
     # Replace ** for <b> tags
     line = re.sub(r"\*\*(\S+)", r"<b>\1", line)
@@ -94,7 +91,6 @@ def mark2html(*argv):
     inputFile = argv[1]
     ouputFile = argv[2]
     flags = argv[3:]
-
 
     with open(inputFile, "r") as f:
         markdown = f.readlines()
@@ -199,3 +195,4 @@ if __name__ == "__main__":
         exit(1)
 
     mark2html(*argv)
+    
